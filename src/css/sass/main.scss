@@ -1,0 +1,395 @@
+@import 'common';
+
+body{
+    margin: 0;
+    font-family: $body_font;
+}
+a{
+    text-decoration: none;
+}
+h1,h2,h3,h4{
+    font-family: $title_font;
+}
+h3{
+    font-size: 2em;
+    text-align: center;
+    align-self: center;
+    margin: 0;
+}
+h4{
+    margin: 0;
+    font-size: 1.2em;
+    letter-spacing: 0.03em;
+}
+p{
+    margin: 0;
+}
+.slick-list{
+    height: 200px;
+    @media screen and (min-width: $min-md){
+        height: 500px;
+    }
+}
+.slick-arrow{
+    z-index: 1;
+}
+.slick-prev{
+    left: 25px;
+}
+.slick-next{
+    right: 25px;
+}
+.banner{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    background-color: $color_3;
+    letter-spacing: 0.03em;
+    color: $color_2;
+    height: 15vw;
+    @media screen and (min-width: $min-md){
+        height: 8vw;
+    }
+    &::after{
+        content:'';
+        display: block;
+        position: absolute;
+        bottom: -18px;
+        width: 0px;
+        height: 0px;
+        border-top: 18px solid $color_3;
+        border-left: 18px solid transparent;
+        border-right: 18px solid transparent;
+    }
+}
+.menu{
+    color: $color_2;
+    padding: 10px;
+}
+header{
+    text-align: right;
+    background-color: $color_1;
+
+    #icono-menu{
+        border: 2px solid $color_2;
+        display: inline-block;
+        border-radius: 5px;
+        margin: 8px 6px;
+        cursor: pointer;
+        display: inline-block;
+        @media screen and (min-width: $min-md){
+            display: none;
+        }
+        div{
+            background-color: $color_2;
+            border: 2px solid $color_2;
+            border-radius: 50px;
+            margin: 8px 6px;
+            width: 30px;
+        }
+    }
+    nav{
+        display: none;
+        text-align: center;
+        @media screen and (min-width: $min-md){
+            text-align: right;
+            display: block;
+            padding: 40px 40px 20px 20px;
+        }
+        a{
+            display: block;
+            @media screen and (min-width: $min-md){
+                display: inline-block;
+            }
+            font-size: 1.15em;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: $title_font;
+        }
+    }
+}
+#galeria{
+    background-color: #000;
+    position: relative;
+    .main-text{
+        z-index: 1;
+        display: flex;
+        color: $color_2;
+        position: absolute;
+        letter-spacing: 0.03em;
+        text-align: center;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        justify-content: center;
+        .text-container{
+            align-self: center;
+            h1{
+                margin: 0;
+                font-size: 1.5em;
+                @media screen and (min-width: $min-md){
+                    font-size: 3em;
+                }
+            }
+            h2{
+                margin: 0;
+                font-size: 1.2em;
+                font-weight: normal;
+                @media screen and (min-width: $min-md){
+                    font-size: 2em;
+                }
+            }
+            a{
+                color: $color_2;
+                display: inline-block;
+                margin-top: 10px;
+                padding: 4px 15px;
+                border-radius: 20px;
+                background-color: $color_3;
+                font-weight: bold;
+                @media screen and (min-width: $min-md){
+                    padding: 10px 30px;
+                }
+            }
+        }
+    }
+}
+#grid{
+    display: grid;
+    grid-gap: 4px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 15vw repeat(9, 20vw);
+    @media screen and (min-width: $min-md){
+        grid-template-rows: 8vw repeat(9, 10vw);
+    }
+    .img-container{
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+    .banner{
+        grid-column: 1 / 4;
+        grid-row: 1;
+    }
+    .img0{
+        display: none;
+    }
+    .img1{
+        grid-column: 1 / 4;
+        grid-row: 2 / 5;
+    }
+    .video{
+        grid-column: 1 / 4;
+        grid-row: 5 / 8;
+    }
+    .img2{
+        display: none;
+    }
+    .img3{
+        grid-column: 1 / 4;
+        grid-row: 8 / 11;
+    }
+    @media screen and (min-width: $min-md){
+        .img0{
+            display: block;
+            grid-column: 1;
+            grid-row: 2 / 5;
+        }
+        .img1{
+            grid-column: 2 / 4;
+            grid-row: 2 / 5;
+        }
+        .video{
+            grid-column: 1 / 3;
+            grid-row: 5 / 8;
+        }
+        .img2{
+            display: block;
+            grid-column: 3;
+            grid-row: 5 / 11;
+        }
+        .img3{
+            grid-column: 1 / 3;
+            grid-row: 8 / 11;
+        }
+    }
+}
+#eventos{
+    display: grid;
+    margin-bottom: 10px;
+    grid-gap: 12px 40px;
+    grid-template-columns: 1fr;
+    @media screen and (min-width: $min-md){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .banner{
+        grid-column: 1;
+        @media screen and (min-width: $min-md){
+            grid-column: 1 / 3;
+        }
+    }
+    .ficha-evento{
+        display: grid;
+        grid-gap: 2px 10px;
+        overflow: hidden;
+        grid-template-columns: 106px 1fr;
+        min-height: 100px;
+        .date{
+            margin-left: 10px;
+            color: $color_4;
+            font-weight: bold;
+            font-family: $title_font;
+            .dia{
+                font-size: 1.8em;
+            }
+            .mes{
+                font-size: 1.2em;
+            }
+        }
+        .texto{
+            margin-right: 10px;
+            p{
+                text-align: justify;
+            }
+        }
+    }
+}
+#blog{
+    display: grid;
+    margin-bottom: 10px;
+    grid-template-columns: 1fr;
+    @media screen and (min-width: $min-md){
+        grid-gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .title{
+        padding: 10px 0;
+        background-color: $color_4;
+        color: $color_2;
+        grid-column: 1;
+        @media screen and (min-width: $min-md){
+            grid-column: 1 / 4;
+        }
+    }
+    .articulo{
+        background-color: $color_4;
+        color: $color_2;
+        padding: 15px;
+        display: grid;
+        grid-gap: 2px 10px;
+        overflow: hidden;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 'img texto texto';
+        @media screen and (min-width: $min-md){
+            border-radius: 5px;
+        }
+        .img-container{
+            grid-area: img;
+            overflow: hidden;
+            height: 100px;
+            img{
+                height: 100%;
+                margin-left: -30%;
+            }
+        }
+        .texto{
+            grid-area: texto;
+            display: grid;
+            grid-template-columns: 1fr 55px;
+            grid-template-areas:
+                'blogTitle blogDate'
+                'blogText blogText'
+            ;
+            h4{
+                grid-area: blogTitle;
+            }
+            small{
+                grid-area: blogDate;
+                justify-self: end;
+            }
+            p{
+                grid-area: blogText;
+                a{
+                    color: $color_3;
+                }
+            }
+        }
+    }
+}
+#nosotros{
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        'txt'
+        'img'
+    ;
+    @media screen and (min-width: $min-md){
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 'img txt';
+    }
+    .imagen{
+        grid-area: img;
+        img{
+            width: 100%;
+        }
+    }
+    .text{
+        grid-area: txt;
+        align-self: center;
+        margin: 0 20px;
+        text-align: justify;
+        p{
+            margin: 10px 0;
+        }
+    }
+}
+#contacto{
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    @media screen and (min-width: $min-md){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .contacto{
+        display: flex;
+        margin: 30px 0;
+        flex-direction: column;
+        h3{
+            order: 0;
+        }
+        .redes{
+            order: 1;
+            display: inline-block;
+            margin: 10px auto;
+            a{
+                display: block;
+                color: $color_1;
+                margin: 20px 0;
+                .icono{
+                    width: 25px;
+                    height: 25px;
+                }
+                span{
+                    vertical-align: super;
+                }
+            }
+        }
+    }
+    .mapa{
+        height: 400px;
+        @media screen and (min-width: $min-md){
+            height: auto;
+        }
+    }
+}
+footer{
+    background-color: $color_4;
+    text-align: right;
+    color: $color_2;
+    padding: 20px;
+}
